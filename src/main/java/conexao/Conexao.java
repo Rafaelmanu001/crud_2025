@@ -21,8 +21,8 @@ import java.util.logging.Logger;
 public class Conexao {
     //private static final String URL = "jdbc:SGBD://SERVIDOR:PORTA/NOME_DA_BASE";
     private static final String URL = "jdbc:mysql://localhost:3306/bd_estoque";
-    private static final String USUARIO = "gregory";
-    private static final String SENHA = "qwe123";
+    private static final String USUARIO = "root";
+    private static final String SENHA = "";
     
     public static Connection getConexao() {
         try {
