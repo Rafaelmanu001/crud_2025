@@ -6,31 +6,31 @@ package model.bean;
 
 /**
  *
- * @author Rafael
+ * @author gregory
  */
 public class TipoProduto {
     private int id;
     private String descricao;
     
-// Metodos de encapsulamento
-public int getId(){
-    return id;
-    
-}    
-public void setId(int id) {
-    this.id = id;
-    
-}
-public String getDescricao() {
-    return descricao;
-            
-}
-public void setDescricao(String descricao) {
-    this.descricao = descricao;
-    
-}
-public String toString() {
-    return descricao;
-    
-}
+    // Métodos de encapsulamento
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }
