@@ -16,7 +16,7 @@ import model.dao.TipoProdutoDAO;
  */
 public class TelaTipoProduto extends javax.swing.JInternalFrame {
     // Criar um atributo para o tipo de produto (bean)
-    TipoProduto tp = null;
+    TipoProduto meuTipoProduto = null;
 
     /** Creates new form TelaTipoProduto */
     public TelaTipoProduto() {
@@ -185,13 +185,13 @@ public class TelaTipoProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // Construir um objeto do TipoProduto
-        tp = new TipoProduto();
-        tp.setDescricao(txtDescricao.getText());
+        // Construir um objeto do TipoProdmeuTipoProdutoo
+        meuTipoProduto = new TipoProduto();
+        meuTipoProduto.setDescricao(txtDescricao.getText());
         
         // Invocar o método create da classe DAO
         TipoProdutoDAO dao = new TipoProdutoDAO();
-        dao.create(tp);
+        dao.create(meuTipoProduto);
         
         // Limpar os campos e preencher novamente a tabela
         limpar();
@@ -205,19 +205,19 @@ public class TelaTipoProduto extends javax.swing.JInternalFrame {
         
         if(linha != -1) {
             TipoProdutoDAO dao = new TipoProdutoDAO();
-            tp = dao.read(Integer.parseInt(id));
+            meuTipoProduto = dao.read(Integer.parseInt(id));
             
-            // Preencher os campos do formulário
-            txtDescricao.setText(tp.getDescricao());
+            // PreenchmeuTipoProduto os campos do formulário
+            txtDescricao.setText(meuTipoProduto.getDescricao());
         }
     }//GEN-LAST:event_tblCadastradosMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        tp.setDescricao(txtDescricao.getText());
+        meuTipoProduto.setDescricao(txtDescricao.getText());
         
         TipoProdutoDAO dao = new TipoProdutoDAO();
-        dao.update(tp);
+        dao.update(meuTipoProduto);
         
         limpar();
         preencherTabela();
@@ -225,10 +225,10 @@ public class TelaTipoProduto extends javax.swing.JInternalFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // Confirmar se realmente deseja excluir
-        if (tp != null) {
+        if (meuTipoProduto != null) {
             if (JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir este tipo de produto?") == JOptionPane.YES_OPTION) {
                 TipoProdutoDAO dao = new TipoProdutoDAO();
-                dao.destroy(tp);
+                dao.destroy(meuTipoProduto);
                 
                 limpar();
                 preencherTabela();
