@@ -35,6 +35,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuGerenciar = new javax.swing.JMenu();
         menuGerenciarTipoProduto = new javax.swing.JMenuItem();
         menuGerenciarProduto = new javax.swing.JMenuItem();
+        menuGerenciarCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +80,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuGerenciar.add(menuGerenciarProduto);
 
+        menuGerenciarCliente.setText("Cliente");
+        menuGerenciarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuGerenciarClienteActionPerformed(evt);
+            }
+        });
+        menuGerenciar.add(menuGerenciarCliente);
+
         jMenuBar1.add(menuGerenciar);
 
         setJMenuBar(jMenuBar1);
@@ -118,6 +127,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);                
     }//GEN-LAST:event_menuGerenciarProdutoActionPerformed
 
+    private void menuGerenciarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciarClienteActionPerformed
+// 1. Verifica se a tela já está aberta para evitar múltiplas instâncias
+    if (!(painelPrincipal.getAllFrames().length > 0 && painelPrincipal.getAllFrames()[0] instanceof TelaCliente)) {
+        
+        // 2. Cria a nova instância da TelaCliente
+        TelaCliente tc = new TelaCliente();
+        
+        // 3. Adiciona a TelaCliente ao JDesktopPane (painelPrincipal)
+        painelPrincipal.add(tc);
+        
+        // 4. Exibe a tela
+        tc.setVisible(true);
+    }
+    }//GEN-LAST:event_menuGerenciarClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,6 +172,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuArquivo;
     private javax.swing.JMenuItem menuArquivoSair;
     private javax.swing.JMenu menuGerenciar;
+    private javax.swing.JMenuItem menuGerenciarCliente;
     private javax.swing.JMenuItem menuGerenciarProduto;
     private javax.swing.JMenuItem menuGerenciarTipoProduto;
     private javax.swing.JDesktopPane painelPrincipal;
